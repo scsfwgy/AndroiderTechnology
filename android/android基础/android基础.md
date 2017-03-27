@@ -1,5 +1,5 @@
-##Android基础
-###目录
+## Android基础
+### 目录
 * 五种布局的特点和效率对比
 * Activity的生命周期和缓存
 * 切换activity执行顺序
@@ -18,22 +18,22 @@
 * Dalvik和ART区别
 * Android屏幕适配有哪些方法
 
-###详解
-####五种布局的特点和效率对比
+### 详解
+#### 五种布局的特点和效率对比
 * LinearLayout：常用，线性布局，简单布局可以使用，可以使用权重进行百分比布局。特别注意，在复杂布局中使用可能会出现“过度绘制”问题。
 * RelativeLayout：常用，相对布局，适用于复杂的布局。
 * FrameLayout：较常用，帧布局，所有东西依次都放在左上角，会重叠。在开发中常做容器使用，用于动态添加布局对象。
 * TableLayout：较常用，表布局，类似于表格。
 * AbsoluteLayout：不常用，绝对布局，**屏幕适配麻烦**，容易出问题，在实际开发中不常用。
 
-####Activity的生命周期和缓存
+#### Activity的生命周期和缓存
 ![](http://hi.csdn.net/attachment/201109/1/0_1314838777He6C.gif)
 	
 * 有a、b两个activity，当a进入b之后的一段时间，可能系统就把a回收了，这时候按back键，执行的不是a的onStart()方法，而是onCreate()方法，a被重新创建了一次，这时a的临时数据和状态就很有可能就丢失了。而Activity中的onSaveInstanceState()回调方法会保存临时的数据和状态，这个方法一定会再activity回收之前调用。方法中有一个Bundle参数，putString()、putInt()等方法需要传入两个参数，一个键一个值。数据保存之后会在 onCreate中会恢复，onCreate也有一个Bundle类型的参数。onRestoreInstanceState(Bundle outState)不一定会执行，建议在onCreate(Bundle outState)中做恢复处理。
 * 关键字：onSaveInstanceState(Bundle outState)、onCreate(Bundle savedInstanceState)、onRestoreInstanceState(Bundle outState)。
 * @see:[http://blog.csdn.net/lccly/article/details/6089667](http://blog.csdn.net/lccly/article/details/6089667)
 
-####切换activity执行顺序
+#### 切换activity执行顺序
 * 从一个Activity通过Intent切换到另一个Activity:
 
 		08-25 05:02:47.783: INFO/System.out(339): MainActivity------->onPause()  
