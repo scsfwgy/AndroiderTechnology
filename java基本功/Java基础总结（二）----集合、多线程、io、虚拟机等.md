@@ -1,5 +1,5 @@
-##Java集合
-####java集合框架的结构
+## Java集合
+#### java集合框架的结构
 ![](http://img.blog.csdn.net/20160302182650993?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
 
 #### List接口
@@ -187,8 +187,8 @@ Java的serialization提供了一种持久化对象实例的机制。当持久化
 	7. 信号量（semaphore）：主要作为进程间以及同一进程不同线程之间的同步手段。
 	8. 套接口（Socket）：更为一般的进程间通信机制，可用于不同机器之间的进程间通信。起初是由Unix系统的BSD分支开发出来的，但现在一般可以移植到其它类Unix系统上：Linux和System V的变种都支持套接字。
 
-##IO
-####继承关系图
+## IO
+#### 继承关系图
 ![](http://img.blog.csdn.net/20160313181758645)
 * 待补充
 
