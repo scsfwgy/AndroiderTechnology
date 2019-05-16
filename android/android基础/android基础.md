@@ -38,8 +38,10 @@
 
 #### Fragment的生命周期
 
-![](http://img.my.csdn.net/uploads/201211/29/1354170682_3824.png)
-![](http://img.blog.csdn.net/20150310094648441)
+![](https://img-blog.csdn.net/20181001074607686?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l1NTQwMTM1MTAx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+
+![](https://img-blog.csdn.net/20180904234947181?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3BpZ2RyZWFtcw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+
 
 #### Service的两种启动方式，如何保证一个Service不被杀死
 * Context.startService() 
@@ -212,7 +214,7 @@ Android应用程序完全运行在一个独立的线程中。任何在主线程�
 	3. **去除了Apache的http Client**相关方法.Google建议用httpURLConnection来替代httpclient的相关方法,如果执意继续使用httpclient 相关方法,那么你就需要自取导入Apache的jar包.在Android Studio中的Gradle里通过userlibrary'org.Apache.http.legacy'去引用.
 	4. 大量漂亮流畅的动画,Android 6.0系统增加了大量漂亮的过度动画,可以从视觉上减少卡顿感.
 	5. 相机新增专业模式,一直以来,原生的Android相机都被吐槽太过简单甚至简陋了,在此次专业模式,增加了快门速度调节和曝光度调节等新功能.
-	6. 全新的电源键菜单,一般来说 Android的电源键菜单都是关机/重启/飞行,Android 6.0变成了关机/重启/紧急,紧急模式是为了手机快没电的时候设计的,相当于飞行模式的高级版,可以关闭一切好点应用,尽最大可能节省电量.
+	6. 全新的电源键菜单,一般来说 Android的电源键菜单都是关机/重启/飞行,Android 6.0变成了关机/重启/紧急,紧急模式是为了手机快没电的时候设计的,相当于飞行模式的高级版,可以关闭一切耗电应用,尽最大可能节省电量.
 	7. 可自定义锁界面样式,支持电话,信息,相机等快捷方式在锁屏界面的定制,用户可以根据自己的喜好调整这些图标的位置,或者开启或关闭这些快捷方式.
 	8. 支持快速充电的切换.可以开启或关闭快速充电.
 	9. 支持文件夹拖拽应用,可在应用从一个文件夹内直接拖到另一个文件夹,简化了此前繁琐的操作方式,拖拽的过程和Windows的拖拽功能有点相似.
@@ -274,4 +276,6 @@ ART 的机制与 Dalvik 不同。在Dalvik下，应用每次运行的时候，�
 			dp = sp? 
 7. 【重要】根据google出的百分比支持包进行按比例适配。（see:Android 百分比布局库(percent-support-lib) 解析与扩展,[http://blog.csdn.net/lmj623565791/article/details/46695347](http://blog.csdn.net/lmj623565791/article/details/46695347)）
 	
+
+
 

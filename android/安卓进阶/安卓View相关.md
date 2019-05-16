@@ -9,9 +9,16 @@
 
 @see:[http://www.jianshu.com/p/138b98095778](http://www.jianshu.com/p/138b98095778)
 
+* MeasureSpec.EXACTLY模式表示：父容器已经检测出子View所需要的精确大小。 在该模式下，View的测量大小即为SpecSize。
+MeasureSpec.AT_MOST模式表示：父容器未能检测出子View所需要的精确大小，但是指定了一个可用大小即specSize 。在该模式下，View的测量大小不能超过SpecSize。
+* MeasureSpec.UNSPECIFIED这种模式一般用作Android系统内部，或者ListView和ScrollView等滑动控件，在此不做讨论。
+
+
+
 #### View和ViewGroup的事件分发和处理的总流程
 * 很厉害的总结：@see:[http://www.jianshu.com/p/e99b5e8bd67b](http://www.jianshu.com/p/e99b5e8bd67b)
 * ![](http://upload-images.jianshu.io/upload_images/966283-b9cb65aceea9219b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+* ![http://upload-images.jianshu.io/upload_images/966283-d01a5845f7426097.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240](http://upload-images.jianshu.io/upload_images/966283-d01a5845f7426097.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 * 某个控件的dispatchTouchEvent 返回true消费终结事件，那么收到ACTION_DOWN 的函数也能收到 ACTION_MOVE和ACTION_UP。
 * onTouchEvent消费事件的情况：在哪个View的onTouchEvent 返回true，那么ACTION_MOVE和ACTION_UP的事件从上往下传到这个View后就不再往下传递了，而直接传给自己的onTouchEvent 并结束本次事件传递过程。
 * 对于ACTION_MOVE、ACTION_UP总结（下面几句话不太明白，不都是只要消费了，就在该处停止吗？求解答）：
@@ -82,3 +89,11 @@ View 的频繁重新渲染。UI 线程中进行耗时操作。在 Android 4.0 �
 * SurfaceView和View最本质的区别在于，surfaceView是在一个新起的单独线程中可以重新绘制画面而View必须在UI的主线程中更新画面。 
 * 那么在UI的主线程中更新画面 可能会引发问题，比如你更新画面的时间过长，那么你的主UI线程会被你正在画的函数阻塞。那么将无法响应按键，触屏等消息。 
 * 当使用surfaceView 由于是在新的线程中更新画面所以不会阻塞你的UI主线程。但这也带来了另外一个问题，就是事件同步。比如你触屏了一下，你需要surfaceView中thread处理，一般就需要有一个event queue的设计来保存touch event，这会稍稍复杂一点，因为涉及到线程同步。 
+
+####  textureview和surfaceview区别
+* SurfaceView和TextureView均继承于android.view.View，与其它View不同的是，两者都能在独立的线程中绘制和渲染，在专用的GPU线程中大大提高渲染的性能。
+* SurfaceView专门提供了嵌入视图层级的绘制界面，开发者可以控制该界面像Size等的形式，能保证界面在屏幕上的正确位置。但也有局限：
+* 由于是独立的一层View，更像是独立的一个Window，不能加上动画、平移、缩放；两个SurfaceView不能相互覆盖。
+* TextureView更像是一般的View，像TextView那样能被缩放、平移，也能加上动画。TextureView只能在开启了硬件加速的Window中使用，并且消费的内存要比SurfaceView多，并伴随着1-3帧的延迟。
+
+
